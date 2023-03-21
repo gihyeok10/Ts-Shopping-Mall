@@ -1,6 +1,6 @@
 import React from 'react'
 import { useNavigate } from 'react-router'
-const Main = () => {
+const MainPage = () => {
     const navigate = useNavigate()
     const navigateMove = ():void=> {
         navigate('/detail')
@@ -12,6 +12,6 @@ const Main = () => {
   )
 }
 
-export default Main
+export default MainPage
 
 export{}
