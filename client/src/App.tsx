@@ -10,9 +10,13 @@ import PayPage from './Pages/PayPage';
 import QnaPage from './Pages/QnaPage';
 import SearchPage from './Pages/SearchPage';
 import MainPage from './Pages/MainPage';
+import Todo from './Todo';
+import TodoList from './TodoList';
 function App() {
   return (
     <div className="App">
+      <Todo></Todo>
+      <TodoList></TodoList>
       <Routes>
         <Route path='/' element={<MainPage/>}/>
         <Route path='/detail' element={<DetailPage/>}/>
