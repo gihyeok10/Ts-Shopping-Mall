@@ -4,6 +4,7 @@ import { Route,Routes } from 'react-router-dom';
 import { useDispatch,useSelector } from 'react-redux';
 import { Dispatch } from 'redux';
 import { ProductInfo } from './Redux/action-creators';
+import { useNavigate } from 'react-router-dom';
 import DetailPage from './Pages/DetailPage';
 import CartPage from './Pages/CartPage';
 import JoinPage from './Pages/JoinPage';
@@ -18,7 +19,7 @@ import { useEffect } from 'react';
 function App() {
 
   const dispatch :Dispatch = useDispatch();
-
+  const navigate = useNavigate();
   const data2 = useSelector((state :RootState) => state.allReducers)
   console.log("js의 데이타 입니다..!",data2)
 
@@ -78,6 +79,7 @@ function App() {
           </li>
         })
       }
+      <button onClick={()=>navigate('/join')}>회원가입</button>
       <Routes>
         <Route path='/' element={<MainPage/>}/>
         <Route path='/detail' element={<DetailPage/>}/>
