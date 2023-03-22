@@ -74,7 +74,7 @@ function App() {
       {
         data2&& data2.cart.map((item)=>{
           return <li>
-            {item.name}
+            {item.name} 
           </li>
         })
       }

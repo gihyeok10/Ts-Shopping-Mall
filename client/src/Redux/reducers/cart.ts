@@ -1,6 +1,5 @@
 import { ActionTypes } from "../action-types/types";
 import { Actions } from "../action-types";
-import { stat } from "fs";
 
 
 interface initialStateType{
@@ -23,7 +22,7 @@ const cartReducer = (state:initialStateType=initialState,action:Actions) => {
             case ActionTypes.PRODUCT_DELETE:
                 console.log("delete가 들어왔습니다.")
                 state.cart.map((item,index)=> {
-                    if(item.name === "최무식"){
+                    if(item.name === action.payload.name){
                        delete state.cart[index]
                         return;
                     }
