@@ -1,13 +1,14 @@
 import React from "react";
 import axios from "axios";
 import { useState } from "react";
+
 const JoinForm = () => {
+  // select 상태 변수
+  const [index, setIndex] = useState("@naver.com");
   const [checkPassword, setCheckPassword] = useState(true);
-  const [checkEmail, setCheckEmail] = useState(true);
   const [checkPhoneNum, setCheckPhoneNum] = useState(true);
   const [checkId, setCheckId] = useState(true);
   // 유효성 검사 체크 상태 변수
-
   const [userId, setUserId] = useState("");
   const [userPassword, setUserPassword] = useState("");
   const [userName, setUserName] = useState("");
@@ -57,6 +58,11 @@ const JoinForm = () => {
     }
   };
 
+  // select
+  const onSelect = (e: any) => {
+    setIndex(e.target.value);
+    setUserEmail(userEmail + index);
+  };
   // Check 정보들
 
   const checkPhonenumberAble = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -87,20 +93,6 @@ const JoinForm = () => {
     }
   };
 
-  // 이메일 유효성 검사
-  const checkEmailAble = (e: React.ChangeEvent<HTMLInputElement>) => {
-    var regExp =
-      /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i;
-    // 형식에 맞는 경우 true 리턴
-    console.log("이메일 유효성 검사 :: ", regExp.test(e.target.value));
-    if (regExp.test(e.target.value) == false) {
-      setCheckEmail(false);
-    } else {
-      setCheckEmail(true);
-    }
-  };
-
-  // Id check 하기
   const checkIdAble = () => {
     axios
       .post("http://localhost:3002/checkIdAble", {
@@ -202,11 +194,19 @@ const JoinForm = () => {
 
           <label>이메일</label>
           <input
-            onBlur={checkEmailAble}
             placeholder="이메일"
             onChange={(e) => writeForm(e, "email")}
           ></input>
-          {checkEmail ? null : "이메일 틀려요"}
+          <select
+            onChange={(e) => {
+              onSelect(e);
+            }}
+          >
+            <option value="@naver.com">@naver.com</option>
+            <option value="@nate.com">@nate.com</option>
+            <option value="@daum.net">@daum.net</option>
+          </select>
+
           <button onClick={joinSubmit}>회원가입하기</button>
         </form>
       </div>
