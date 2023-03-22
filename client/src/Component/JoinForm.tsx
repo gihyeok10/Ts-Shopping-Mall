@@ -14,7 +14,7 @@ const JoinForm = () => {
   const [userName, setUserName] = useState("");
   const [userPhoneNum, setUserPhoneNum] = useState("");
   const [userEmail, setUserEmail] = useState("");
-  const [userSex, setUserSex] = useState("");
+  const [userSex, setUserSex] = useState("남자");
   const [userBirthDay, setUserBirthDay] = useState("");
   const [userAddress, setUserAddress] = useState("");
   const [userHomePhoneNum, setUserHomePhoneNum] = useState("");
@@ -48,7 +48,7 @@ const JoinForm = () => {
     }
   };
   // onchange
-
+  console.log(userSex);
   // 비밀번호 맞는지 확인.
   const matchPassword = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.value === userPassword) {
@@ -172,12 +172,6 @@ const JoinForm = () => {
             onChange={(e) => writeForm(e, "address")}
           ></input>
 
-          <label>성별</label>
-          <input
-            placeholder="성별"
-            onChange={(e) => writeForm(e, "sex")}
-          ></input>
-
           <label>일반전화</label>
           <input
             placeholder="일반전화"
@@ -207,6 +201,24 @@ const JoinForm = () => {
             <option value="@daum.net">@daum.net</option>
           </select>
 
+          <label>
+            <input
+              type="radio"
+              name="gender"
+              value="남자"
+              onChange={(e) => writeForm(e, "sex")}
+            />{" "}
+            남자
+          </label>
+          <label>
+            <input
+              type="radio"
+              name="gender"
+              value="여자"
+              onChange={(e) => writeForm(e, "sex")}
+            />{" "}
+            여자
+          </label>
           <button onClick={joinSubmit}>회원가입하기</button>
         </form>
       </div>
