@@ -38,6 +38,17 @@ app.post("/joinSubmit", (req, res) => {
   );
 });
 
+app.post("/checkIdAble", (req, res) => {
+  const { id } = req.body;
+  db.query(
+    "select count(*) as 'cnt' from user_information where user_id =?;",
+    [id],
+    (err, result) => {
+      res.send(result);
+    }
+  );
+});
+
 app.listen(PORT, () => {
   console.log("서버 돌리는중..");
 });

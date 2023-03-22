@@ -28,7 +28,6 @@ const JoinForm = () => {
   ) => {
     if (isWhat === "id") {
       setUserId(e.target.value);
-      console.log("id값이요", userId);
     } else if (isWhat === "password") {
       setUserPassword(e.target.value);
     } else if (isWhat === "name") {
@@ -54,7 +53,6 @@ const JoinForm = () => {
     if (e.target.value === userPassword) {
       setConfirmPassword(true);
     } else {
-      console.log("비번이 틀려요");
       setConfirmPassword(false);
     }
   };
@@ -102,7 +100,21 @@ const JoinForm = () => {
     }
   };
 
-  // Check정보들
+  // Id check 하기
+  const checkIdAble = () => {
+    axios
+      .post("http://localhost:3002/checkIdAble", {
+        id: userId,
+      })
+      .then((res) => {
+        console.log("결과값", res.data);
+        if (res.data[0].cnt === 1) {
+          setCheckId(false);
+        } else {
+          setCheckId(true);
+        }
+      });
+  };
 
   const joinSubmit = () => {
     axios
@@ -131,10 +143,11 @@ const JoinForm = () => {
         <form className="join_Form">
           <label>아이디</label>
           <input
+            onBlur={checkIdAble}
             placeholder="아이디"
             onChange={(e) => writeForm(e, "id")}
           ></input>
-
+          {checkId ? "아이디 사용가능" : "이미 누가 쓰고있음."}
           <label>비번</label>
           <input
             onBlur={checkPasswordAble}
@@ -189,7 +202,7 @@ const JoinForm = () => {
 
           <label>이메일</label>
           <input
-            onAbort={checkEmailAble}
+            onBlur={checkEmailAble}
             placeholder="이메일"
             onChange={(e) => writeForm(e, "email")}
           ></input>
