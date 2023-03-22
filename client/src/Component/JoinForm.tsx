@@ -49,6 +49,15 @@ const JoinForm = () => {
   };
   // onchange
 
+  // 비밀번호 맞는지 확인.
+  const matchPassword = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (e.target.value === userPassword) {
+      console.log("통과!");
+    } else {
+      console.log("비번이 틀려요");
+    }
+  };
+
   const joinSubmit = () => {
     axios
       .post("http://localhost:3002/joinSubmit", {
@@ -67,6 +76,8 @@ const JoinForm = () => {
         console.log(res.data);
       });
   };
+
+  // 서버에 회원가입 양식 전송하기.
   return (
     <div>
       <h1>회원가입</h1>
@@ -87,7 +98,7 @@ const JoinForm = () => {
           <label>비번확인</label>
           <input
             placeholder="비번확인"
-            onChange={(e) => writeForm(e, "password")}
+            onChange={(e) => matchPassword(e)}
           ></input>
 
           <label>이름</label>
