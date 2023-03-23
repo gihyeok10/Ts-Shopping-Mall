@@ -119,6 +119,7 @@ function App() {
           return <li>{item.name}</li>;
         })}
       <button onClick={() => navigate("/join")}>회원가입</button>
+      <button onClick={() => navigate("/login")}>로그인</button>
       <Routes>
         <Route path="/" element={<MainPage />} />
         <Route path="/detail" element={<DetailPage />} />

@@ -1,6 +1,6 @@
 import React from "react";
 import axios from "axios";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import DaumPostcode from "react-daum-postcode";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
@@ -30,11 +30,6 @@ const JoinForm = () => {
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-  const [isPop, setIsPop] = useState(true);
-  // 팝업창 제어 함수
-  const changePop = () => {
-    setIsPop(true);
-  };
 
   const writeForm = (
     e: React.ChangeEvent<HTMLInputElement>,
