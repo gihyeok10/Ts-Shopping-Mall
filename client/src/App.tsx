@@ -15,12 +15,13 @@ import PayPage from "./Pages/PayPage";
 import QnaPage from "./Pages/QnaPage";
 import SearchPage from "./Pages/SearchPage";
 import MainPage from "./Pages/MainPage";
-import { RootState } from "./Redux";
+import { RootReducerType } from "./Redux";
+
 import { useEffect } from "react";
 function App() {
   const dispatch: Dispatch = useDispatch();
   const navigate = useNavigate();
-  const data2 = useSelector((state: RootState) => state.allReducers);
+  const data2 = useSelector((state: RootReducerType) => state.allReducers);
   console.log("js의 데이타 입니다..!", data2);
 
   interface PadoType {
