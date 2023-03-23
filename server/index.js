@@ -60,6 +60,18 @@ app.post("/checkLogin", (req, res) => {
     }
   );
 });
+
+// 회원정보 담기
+app.post("/userInfo", (req, res) => {
+  const { id, password } = req.body;
+  db.query(
+    "SELECT* from user_information WHERE user_id =? and user_password =?;",
+    [id, password],
+    (err, result) => {
+      res.send(result);
+    }
+  );
+});
 app.listen(PORT, () => {
   console.log("서버 돌리는중..");
 });
