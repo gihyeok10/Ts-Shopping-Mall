@@ -1,10 +1,17 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router";
+import { useDispatch, useSelector } from "react-redux";
+import { RootState } from "../Redux";
+import { Dispatch } from "redux";
+import { UserInfo } from "../Redux/action-creators/userActionCreators";
 import axios from "axios";
 const LoginForm = () => {
   // 아이디 /비번 확인할 변수
   const [userId, setUserId] = useState("");
   const [userPassword, setUserPassword] = useState("");
+  const dispatch: Dispatch = useDispatch();
+  const infofo = useSelector((state: RootState) => state.allUserReducers);
+  console.log("리덕스에서온 유저데이터:", infofo.userInformaion);
 
   interface UserInfoType {
     [key: string]: string;
@@ -43,6 +50,7 @@ const LoginForm = () => {
       .then((res) => {
         console.log(res.data[0]);
         userInformation = res.data[0];
+        dispatch(UserInfo.userInformation(userInformation));
       });
   };
   return (
