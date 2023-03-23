@@ -49,6 +49,17 @@ app.post("/checkIdAble", (req, res) => {
   );
 });
 
+// 로그인 체크
+app.post("/checkLogin", (req, res) => {
+  const { id, password } = req.body;
+  db.query(
+    "select count(*) as 'cnt' from user_information where user_id =? and user_password = ?;",
+    [id, password],
+    (err, result) => {
+      res.send(result);
+    }
+  );
+});
 app.listen(PORT, () => {
   console.log("서버 돌리는중..");
 });
