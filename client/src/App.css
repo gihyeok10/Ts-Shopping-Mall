@@ -14,3 +14,14 @@
   justify-content: center;
   flex-direction: column;
 }
+
+/* kakao 모달창  */
+.modal_container {
+  width: 600px;
+  height: 600px;
+}
+
+.post_modal {
+  width: 100%;
+  height: 100%;
+}

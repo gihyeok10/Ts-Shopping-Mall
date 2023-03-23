@@ -1,7 +1,9 @@
 import React from "react";
 import axios from "axios";
-import { useState } from "react";
-
+import { useState, useEffect } from "react";
+import DaumPostcode from "react-daum-postcode";
+import Button from "react-bootstrap/Button";
+import Modal from "react-bootstrap/Modal";
 const JoinForm = () => {
   // select 상태 변수
   const [index, setIndex] = useState("@naver.com");
@@ -18,10 +20,21 @@ const JoinForm = () => {
   const [userBirthDay, setUserBirthDay] = useState("");
   const [userAddress, setUserAddress] = useState("");
   const [userHomePhoneNum, setUserHomePhoneNum] = useState("");
-
   const [confirmPassword, setConfirmPassword] = useState(true);
+  const [userRegion, setUserRegion] = useState("");
 
   // 회원가입 변수
+
+  // 팝업창 변수
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+  const [isPop, setIsPop] = useState(true);
+  // 팝업창 제어 함수
+  const changePop = () => {
+    setIsPop(true);
+  };
 
   const writeForm = (
     e: React.ChangeEvent<HTMLInputElement>,
@@ -48,7 +61,6 @@ const JoinForm = () => {
     }
   };
   // onchange
-  console.log(userSex);
   // 비밀번호 맞는지 확인.
   const matchPassword = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.value === userPassword) {
@@ -118,7 +130,7 @@ const JoinForm = () => {
         homePhoneNum: userHomePhoneNum,
         sex: userSex,
         email: userEmail,
-        address: userAddress,
+        address: userRegion + userAddress,
         birth: userBirthDay,
       })
       .then((res) => {
@@ -128,6 +140,15 @@ const JoinForm = () => {
   };
 
   // 서버에 회원가입 양식 전송하기.
+
+  // KaKao Api
+
+  const complete = (data: { address: string }) => {
+    console.log(data.address);
+    setUserRegion(data.address + ":");
+    handleClose();
+  };
+
   return (
     <div>
       <h1>회원가입</h1>
@@ -166,9 +187,13 @@ const JoinForm = () => {
             onChange={(e) => writeForm(e, "birth")}
           ></input>
 
-          <label>우편번호</label>
+          <Button variant="primary" onClick={handleShow}>
+            우편번호 검색
+          </Button>
+          {userRegion}
+          <label>세부주소</label>
           <input
-            placeholder="우편번호"
+            placeholder="세부주소"
             onChange={(e) => writeForm(e, "address")}
           ></input>
 
@@ -221,6 +246,27 @@ const JoinForm = () => {
           </label>
           <button onClick={joinSubmit}>회원가입하기</button>
         </form>
+
+        <Modal show={show} onHide={handleClose}>
+          <Modal.Header closeButton>
+            <Modal.Title>Modal heading</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            <DaumPostcode
+              className="post_modal"
+              autoClose
+              onComplete={complete}
+            ></DaumPostcode>
+          </Modal.Body>
+          <Modal.Footer>
+            <Button variant="secondary" onClick={handleClose}>
+              Close
+            </Button>
+            <Button variant="primary" onClick={handleClose}>
+              Save Changes
+            </Button>
+          </Modal.Footer>
+        </Modal>
       </div>
     </div>
   );

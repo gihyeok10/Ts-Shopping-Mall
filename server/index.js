@@ -26,8 +26,8 @@ app.post("/joinSubmit", (req, res) => {
     birth,
   } = req.body;
   db.query(
-    "INSERT INTO user_Information (user_Id,user_name,user_password,user_phoneNum,user_homePhoneNum,user_email,user_sex,user_address,user_birthday) VALUES (?,?,?,?,?,?,?,?,?)",
-    [id, name, password, phoneNum, homePhoneNum, sex, email, address, birth],
+    "INSERT INTO user_Information (user_Id,user_password,user_name,user_phoneNum,user_homePhoneNum,user_address,user_sex,user_birthday,user_email) VALUES (?,?,?,?,?,?,?,?,?)",
+    [id, password, name, phoneNum, homePhoneNum, address, sex, birth, email],
     (err, result) => {
       if (err) {
         console.log(err);
