@@ -28,10 +28,9 @@ const MainPage = () => {
       <button onClick={navigateMove}>Go Detail</button>
 
       {productInformation.map((item: any, index: number) => {
-        console.log("아이탬은?:", item);
         return (
-          <div>
-            <li>{index}</li>
+          <div key={index}>
+            <img src={item.image_url} />
             <li>{item.name}</li>
           </div>
         );
