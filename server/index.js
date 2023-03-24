@@ -72,6 +72,12 @@ app.post("/userInfo", (req, res) => {
     }
   );
 });
+
+app.get("/getProduct", (req, res) => {
+  db.query("select * from product;", (err, result) => {
+    res.send(result);
+  });
+});
 app.listen(PORT, () => {
   console.log("서버 돌리는중..");
 });
