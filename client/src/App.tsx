@@ -115,15 +115,12 @@ function App() {
       >
         스크류바지우기
       </button>
-      {data2 &&
-        data2.cart.map((item) => {
-          return <li>{item.name}</li>;
-        })}
+
       <button onClick={() => navigate("/join")}>회원가입</button>
       <button onClick={() => navigate("/login")}>로그인</button>
       <Routes>
         <Route path="/" element={<MainPage />} />
-        <Route path="/detail" element={<DetailPage />} />
+        <Route path="/detail/:id" element={<DetailPage />} />
         <Route path="/cart" element={<CartPage />} />
         <Route path="/join" element={<JoinPage />} />
         <Route path="/login" element={<LoginPage />} />

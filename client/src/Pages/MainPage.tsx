@@ -1,7 +1,19 @@
 import React from "react";
 import { useNavigate } from "react-router";
 import { useEffect, useState } from "react";
+import ProductList from "../Component/ProductList";
 import axios from "axios";
+
+export interface Product {
+  product_id: number;
+  price: string;
+  name: string;
+  ingredient: string;
+  image_url: string;
+  gneder: string;
+  country: string;
+  brand: string;
+}
 const MainPage = () => {
   // 상품정보 타입
   // 상품 정보들
@@ -27,14 +39,14 @@ const MainPage = () => {
       <button onClick={getProductInformation}>정보go</button>
       <button onClick={navigateMove}>Go Detail</button>
 
-      {productInformation.map((item: any, index: number) => {
-        return (
-          <div key={index}>
-            <img src={item.image_url} />
-            <li>{item.name}</li>
-          </div>
-        );
-      })}
+      {productInformation &&
+        productInformation.map((item: Product, index: number) => {
+          return (
+            <div key={index}>
+              <ProductList item={item} />;
+            </div>
+          );
+        })}
     </div>
   );
 };

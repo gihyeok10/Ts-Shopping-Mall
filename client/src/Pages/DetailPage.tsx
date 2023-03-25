@@ -1,9 +1,15 @@
-import React from 'react'
+import React from "react";
+import { useParams } from "react-router";
+import { DetailComponent } from "../Component/DetailComponent";
+const DetailPage = () => {
+  let { id } = useParams();
+  console.log("현재 파람은?:", id);
 
-const DetailPage= () => {
   return (
-    <div>Detail</div>
-  )
-}
+    <div>
+      <DetailComponent id={id} />
+    </div>
+  );
+};
 
-export default DetailPage
+export default DetailPage;
