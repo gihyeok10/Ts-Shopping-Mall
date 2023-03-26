@@ -19,107 +19,12 @@ import { RootReducerType } from "./Redux";
 
 import { useEffect } from "react";
 function App() {
-  const dispatch: Dispatch = useDispatch();
   const navigate = useNavigate();
   const data2 = useSelector((state: RootReducerType) => state.allReducers);
   console.log("js의 데이타 입니다..!", data2);
 
-  interface PadoType {
-    name: string;
-    price: number;
-  }
-  const pado: PadoType = {
-    name: "최무식",
-    price: 59000,
-  };
-  class Person {
-    name: string;
-    price: number;
-    constructor(name: string, price: number) {
-      this.name = name;
-      this.price = price;
-    }
-  }
-
-  const person1: PadoType = {
-    name: "김무식",
-    price: 59000,
-  };
-
-  const person2: PadoType = {
-    name: "죠스바",
-    price: 59000,
-  };
-
-  const person3: PadoType = {
-    name: "스크류바",
-    price: 59000,
-  };
-
   return (
     <div className="App">
-      {data2 &&
-        data2.cart.map((item) => {
-          return <li>{item.name}</li>;
-        })} 
-      <button
-        onClick={() => {
-          dispatch(ProductInfo.product(pado, true));
-        }}
-      >
-        최무식
-      </button>
-      <button
-        onClick={() => {
-          dispatch(ProductInfo.product(person1, true));
-        }}
-      >
-        김무식
-      </button>
-      <button
-        onClick={() => {
-          dispatch(ProductInfo.product(person2, true));
-        }}
-      >
-        죠스바
-      </button>
-      <button
-        onClick={() => {
-          dispatch(ProductInfo.product(person3, true));
-        }}
-      >
-        스크류바
-      </button>
-
-      <button
-        onClick={() => {
-          dispatch(ProductInfo.product(pado, false));
-        }}
-      >
-        최무식지우기
-      </button>
-      <button
-        onClick={() => {
-          dispatch(ProductInfo.product(person1, false));
-        }}
-      >
-        김무식지우기
-      </button>
-      <button
-        onClick={() => {
-          dispatch(ProductInfo.product(person2, false));
-        }}
-      >
-        죠스바지우기
-      </button>
-      <button
-        onClick={() => {
-          dispatch(ProductInfo.product(person3, false));
-        }}
-      >
-        스크류바지우기
-      </button>
-
       <button onClick={() => navigate("/join")}>회원가입</button>
       <button onClick={() => navigate("/login")}>로그인</button>
       <Routes>
