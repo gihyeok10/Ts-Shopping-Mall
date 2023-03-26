@@ -58,6 +58,10 @@ function App() {
 
   return (
     <div className="App">
+      {data2 &&
+        data2.cart.map((item) => {
+          return <li>{item.name}</li>;
+        })} 
       <button
         onClick={() => {
           dispatch(ProductInfo.product(pado, true));

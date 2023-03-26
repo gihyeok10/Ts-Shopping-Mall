@@ -18,9 +18,8 @@ const MainPage = () => {
   // 상품정보 타입
   // 상품 정보들
   const [productInformation, setProductInformation] = useState([]);
-  console.log("메인피이지");
   const getProductInformation = () => {
-    axios.get("http://localhost:3002/getProduct", {}).then((res) => {
+    axios.post("http://localhost:3002/getProduct", {}).then((res) => {
       console.log("상품정보요", res.data);
       setProductInformation(res.data);
     });

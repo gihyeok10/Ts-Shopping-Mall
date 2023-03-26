@@ -73,8 +73,10 @@ app.post("/userInfo", (req, res) => {
   );
 });
 
-app.get("/getProduct", (req, res) => {
+app.post("/getProduct", (req, res) => {
   db.query("select * from product;", (err, result) => {
+    console.log("리절트:", result);
+    console.log("오류:", err);
     res.send(result);
   });
 });
