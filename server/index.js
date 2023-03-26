@@ -75,10 +75,20 @@ app.post("/userInfo", (req, res) => {
 
 app.post("/getProduct", (req, res) => {
   db.query("select * from product;", (err, result) => {
-    console.log("리절트:", result);
-    console.log("오류:", err);
     res.send(result);
   });
+});
+
+// 디테일 데이터 상품정보 조회
+app.post("/getDetailProduct", (req, res) => {
+  const { id } = req.body;
+  db.query(
+    "select * from product where product_id = ? ;",
+    [id],
+    (err, result) => {
+      res.send(result);
+    }
+  );
 });
 app.listen(PORT, () => {
   console.log("서버 돌리는중..");

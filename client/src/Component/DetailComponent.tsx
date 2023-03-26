@@ -26,7 +26,7 @@ export const DetailComponent = (props: PropsType) => {
 
   return (
     <div>
-      <button onClick={getDetailProduct}>데이타 받아보기</button>
+      <button onClick={getDetailProduct}>데이터 받기!</button>
     </div>
   );
 };
