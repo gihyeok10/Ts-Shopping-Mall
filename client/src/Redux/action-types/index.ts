@@ -9,6 +9,7 @@ export interface ProductType {
   gneder: string;
   country: string;
   brand: string;
+  stateNum: number;
 }
 
 interface ProductAddAction {

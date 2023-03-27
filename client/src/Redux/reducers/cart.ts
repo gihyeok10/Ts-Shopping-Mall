@@ -19,6 +19,11 @@ const cartReducer = (
   switch (action.type) {
     case ActionTypes.PRODUCT_ADD:
       const newCart = [...state.cart, action.payload];
+      console.log("액션페이로드:", action.payload);
+
+      if (action.payload.gneder) {
+        action.payload.gneder = "남여공용";
+      }
       state.cart.push(action.payload);
 
       return {

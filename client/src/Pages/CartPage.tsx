@@ -42,4 +42,5 @@ export const ProductNull: ProductType = {
   gneder: "",
   country: "",
   brand: "",
+  stateNum: 0,
 };
