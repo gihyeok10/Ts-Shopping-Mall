@@ -25,6 +25,7 @@ function App() {
 
   return (
     <div className="App">
+      <button onClick={() => navigate("/cart")}>장바구니</button>
       <button onClick={() => navigate("/join")}>회원가입</button>
       <button onClick={() => navigate("/login")}>로그인</button>
       <Routes>

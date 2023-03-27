@@ -1,22 +1,34 @@
 import { ActionTypes } from "./types";
 
-export interface ProductType{
-    name:string,
-    price:number
+export interface ProductType {
+  product_id: number;
+  price: string;
+  name: string;
+  ingredient: string;
+  image_url: string;
+  gneder: string;
+  country: string;
+  brand: string;
 }
 
 interface ProductAddAction {
-    type: ActionTypes.PRODUCT_ADD
-    payload: ProductType
+  type: ActionTypes.PRODUCT_ADD;
+  payload: ProductType;
 }
 
-interface productDeleteAction{
-    type:ActionTypes.PRODUCT_DELETE
-    payload: ProductType
+interface ProductDeleteAction {
+  type: ActionTypes.PRODUCT_DELETE;
+  payload: ProductType;
 }
 
-export type Actions = 
-ProductAddAction | productDeleteAction
+interface ProductAllDeleteAction {
+  type: ActionTypes.PRODUCT_ALL_DELETE;
+  payload: ProductType;
+}
 
+export type Actions =
+  | ProductAddAction
+  | ProductDeleteAction
+  | ProductAllDeleteAction;
 
-export{}
+export {};

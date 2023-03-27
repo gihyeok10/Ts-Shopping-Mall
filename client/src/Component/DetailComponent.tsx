@@ -42,7 +42,7 @@ export const DetailComponent = (props: PropsType) => {
       <button
         onClick={() => {
           if (DetailProduct) {
-            dispatch(ProductInfo.product(DetailProduct, true));
+            dispatch(ProductInfo.product(DetailProduct, "add"));
           }
         }}
       >

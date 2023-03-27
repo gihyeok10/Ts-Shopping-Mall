@@ -37,6 +37,10 @@ const cartReducer = (
       return {
         ...state,
       };
+
+    case ActionTypes.PRODUCT_ALL_DELETE:
+      console.log("all_delete가 들어왔습니다.");
+      return { ...state, cart: [], cartNum: 0 };
     default:
       return state;
   }
