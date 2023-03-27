@@ -28,14 +28,13 @@ const cartReducer = (
 
     case ActionTypes.PRODUCT_DELETE:
       console.log("delete가 들어왔습니다.");
-      state.cart.map((item, index) => {
-        if (item.name === action.payload.name) {
-          delete state.cart[index];
-          return;
-        }
-      });
+      const newCart2 = state.cart.filter(
+        (item) => item.name !== action.payload.name
+      );
       return {
         ...state,
+        cart: newCart2,
+        cartNum: newCart2.length,
       };
 
     case ActionTypes.PRODUCT_ALL_DELETE:

@@ -12,9 +12,12 @@ const CartComponent = (props: PropsTypes) => {
 
   return (
     <div className="cartList">
-      <img src={props.item.image_url} className="cart_Img" />
-      <li>{props.item.name}</li>
-      <li>{props.item.price}</li>
+      <img
+        src={props.item.image_url && props.item.image_url}
+        className="cart_Img"
+      />
+      <li>{props.item.name && props.item.name}</li>
+      <li>{props.item.price && props.item.price}</li>
       <button
         onClick={() => {
           dispatch(ProductInfo.product(props.item, "delete"));
