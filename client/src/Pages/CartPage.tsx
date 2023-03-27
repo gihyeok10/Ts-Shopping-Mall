@@ -10,7 +10,7 @@ const CartPage = () => {
   const dispatch: Dispatch = useDispatch();
   const cartInfo = useSelector((state: RootReducerType) => state.allReducers);
   const cartList = cartInfo.cart;
-
+  console.log("카드정보:", cartInfo);
   const cartNull = () => {
     dispatch(ProductInfo.product(ProductNull, "all_delete"));
   };

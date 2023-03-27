@@ -18,6 +18,7 @@ const CartComponent = (props: PropsTypes) => {
       />
       <li>{props.item.name && props.item.name}</li>
       <li>{props.item.price && props.item.price}</li>
+      <li>수량:{props.item.stateNum}개</li>
       <button
         onClick={() => {
           dispatch(ProductInfo.product(props.item, "delete"));

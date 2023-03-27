@@ -18,16 +18,26 @@ const cartReducer = (
 ) => {
   switch (action.type) {
     case ActionTypes.PRODUCT_ADD:
-      const newCart = [...state.cart, action.payload];
-      console.log("액션페이로드:", action.payload);
+      // 만약 action.payload.name === state.cart안에 한개라도 있다면? 그 네임을 가지고 있는 객체 statenum에 1을 추가해준다.
+      const newCart = [...state.cart];
 
-      if (action.payload.gneder) {
-        action.payload.gneder = "남여공용";
+      const existingProduct = newCart.find(
+        (item) => item.name === action.payload.name
+      );
+
+      if (existingProduct) {
+        newCart.forEach((item) => {
+          if (item.name === existingProduct.name) {
+            item.stateNum += 1;
+          }
+        });
+      } else {
+        newCart.push(action.payload);
       }
-      state.cart.push(action.payload);
 
       return {
         ...state,
+        cart: newCart,
         cartNum: newCart.length,
       };
 
