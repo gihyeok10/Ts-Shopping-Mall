@@ -27,9 +27,21 @@ interface ProductAllDeleteAction {
   payload: ProductType;
 }
 
+interface ProductNumPlusAction {
+  type: ActionTypes.PRODUCT_NUM_PLUS;
+  payload: ProductType;
+}
+
+interface ProductNumMinusAction {
+  type: ActionTypes.PRODUCT_NUM_MINUS;
+  payload: ProductType;
+}
+
 export type Actions =
   | ProductAddAction
   | ProductDeleteAction
-  | ProductAllDeleteAction;
+  | ProductAllDeleteAction
+  | ProductNumPlusAction
+  | ProductNumMinusAction;
 
 export {};

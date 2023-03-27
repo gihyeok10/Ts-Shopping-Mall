@@ -3,6 +3,7 @@ import { ProductType } from "../Redux/action-types";
 import { useDispatch } from "react-redux";
 import { Dispatch } from "redux";
 import { ProductInfo } from "../Redux/action-creators";
+
 type PropsTypes = {
   item: ProductType;
 };
@@ -19,6 +20,20 @@ const CartComponent = (props: PropsTypes) => {
       <li>{props.item.name && props.item.name}</li>
       <li>{props.item.price && props.item.price}</li>
       <li>수량:{props.item.stateNum}개</li>
+      <button
+        onClick={() => {
+          dispatch(ProductInfo.product(props.item, "num_plus"));
+        }}
+      >
+        +
+      </button>
+      <button
+        onClick={() => {
+          dispatch(ProductInfo.product(props.item, "num_minus"));
+        }}
+      >
+        -
+      </button>
       <button
         onClick={() => {
           dispatch(ProductInfo.product(props.item, "delete"));

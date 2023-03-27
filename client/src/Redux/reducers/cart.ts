@@ -55,6 +55,29 @@ const cartReducer = (
     case ActionTypes.PRODUCT_ALL_DELETE:
       console.log("all_delete가 들어왔습니다.");
       return { ...state, cart: [], cartNum: 0 };
+
+    case ActionTypes.PRODUCT_NUM_PLUS:
+      const plusCart = [...state.cart];
+      const plusProduct = plusCart.find(
+        (item) => item.product_id === action.payload.product_id
+      );
+
+      if (plusProduct) {
+        plusProduct.stateNum += 1;
+      }
+
+      return { ...state, cart: plusCart };
+
+    case ActionTypes.PRODUCT_NUM_MINUS:
+      const minusCart = [...state.cart];
+      const minusProduct = minusCart.find(
+        (item) => item.product_id === action.payload.product_id
+      );
+
+      if (minusProduct) {
+        minusProduct.stateNum -= 1;
+      }
+      return { ...state, cart: minusCart };
     default:
       return state;
   }

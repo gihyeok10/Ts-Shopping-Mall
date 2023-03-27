@@ -20,6 +20,16 @@ const product = (product: ProductType, productState: string): any => {
         type: ActionTypes.PRODUCT_ALL_DELETE,
         payload: product,
       });
+    } else if (productState === "num_plus") {
+      dispatch({
+        type: ActionTypes.PRODUCT_NUM_PLUS,
+        payload: product,
+      });
+    } else if (productState === "num_minus") {
+      dispatch({
+        type: ActionTypes.PRODUCT_NUM_MINUS,
+        payload: product,
+      });
     }
   };
 };
