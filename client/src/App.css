@@ -2,6 +2,11 @@
   text-align: center;
 }
 
+body {
+  padding-top: 200px;
+  /* 생략 */
+}
+
 /* joinPage */
 .join_Container {
   display: flex;
@@ -43,6 +48,8 @@
   background-color: bisque;
   height: 200px;
   width: 100%;
+  position: fixed;
+  top: 0;
 }
 
 #navbar a {

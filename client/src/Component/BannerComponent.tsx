@@ -1,11 +1,44 @@
-import React from "react";
-import { useState, useEffect } from "react";
+import React, { useRef, useState } from "react";
+// Import Swiper React components
+import { Swiper, SwiperSlide } from "swiper/react";
+
+// Import Swiper styles
+import "swiper/css";
+import "swiper/css/effect-fade";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+// import required modules
+import { Autoplay, EffectFade, Navigation, Pagination } from "swiper";
 
 const BannerComponent = () => {
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const images: string[] = [back1, back2, back3];
+  const items: string[] = [back1, back2, back3];
 
-  return <div id="banner"></div>;
+  return (
+    <div>
+      <Swiper
+        id="banner"
+        effect={"fade"}
+        autoplay={{
+          delay: 3000,
+          disableOnInteraction: false,
+        }}
+        pagination={{
+          clickable: true,
+        }}
+        modules={[Navigation, EffectFade, Pagination, Autoplay]}
+        className="mySwiper"
+        loop={true}
+      >
+        {items.map((item, idx) => {
+          return (
+            <SwiperSlide key={idx}>
+              <img src={item} />
+            </SwiperSlide>
+          );
+        })}
+      </Swiper>
+    </div>
+  );
 };
 
 export default BannerComponent;
