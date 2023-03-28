@@ -32,7 +32,7 @@ const BannerComponent = () => {
         {items.map((item, idx) => {
           return (
             <SwiperSlide key={idx}>
-              <img src={item} />
+              <img className="banner_img" src={item} />
             </SwiperSlide>
           );
         })}

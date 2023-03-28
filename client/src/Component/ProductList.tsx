@@ -1,6 +1,7 @@
 import React from "react";
 import { Product } from "../Pages/MainPage";
 import { useNavigate } from "react-router";
+
 type Props = {
   item: Product;
 };
@@ -10,9 +11,11 @@ const ProductList = (props: Props) => {
     navigate(`/detail/${props.item.product_id}`);
   };
   return (
-    <div onClick={moveDetailPage}>
-      <li>props.item.name</li>
-      <img src={props.item.image_url}></img>
+    <div className="product_container">
+      <img onClick={moveDetailPage} src={props.item.image_url}></img>
+      <p>{props.item.brand}</p>
+      <p>{props.item.name}</p>
+      <p>{props.item.price}원</p>
     </div>
   );
 };

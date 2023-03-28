@@ -16,6 +16,7 @@ import QnaPage from "./Pages/QnaPage";
 import SearchPage from "./Pages/SearchPage";
 import MainPage from "./Pages/MainPage";
 import { RootReducerType } from "./Redux";
+import NavbarComponent from "./Component/NavbarComponent";
 
 function App() {
   const data2 = useSelector((state: RootReducerType) => state.allReducers);
@@ -23,6 +24,7 @@ function App() {
 
   return (
     <div className="App">
+      <NavbarComponent />
       <Routes>
         <Route path="/" element={<MainPage />} />
         <Route path="/detail/:id" element={<DetailPage />} />

@@ -3,8 +3,8 @@ import { useNavigate } from "react-router";
 import { useEffect, useState } from "react";
 import ProductList from "../Component/ProductList";
 import axios from "axios";
-import NavbarComponent from "../Component/NavbarComponent";
 import BannerComponent from "../Component/BannerComponent";
+import { Container, Row, Col } from "react-bootstrap";
 export interface Product {
   product_id: number;
   price: string;
@@ -30,25 +30,20 @@ const MainPage = () => {
     getProductInformation();
   }, []);
 
-  const navigate = useNavigate();
-  const navigateMove = (): void => {
-    navigate("/detail");
-  };
   return (
     <div>
-      <NavbarComponent />
       <BannerComponent />
-      <button onClick={getProductInformation}>정보go</button>
-      <button onClick={navigateMove}>Go Detail</button>
-
-      {productInformation &&
-        productInformation.map((item: Product, index: number) => {
-          return (
-            <div key={index}>
-              <ProductList item={item} />;
-            </div>
-          );
-        })}
+      <h1>전체 상품</h1>
+      <Row>
+        {productInformation &&
+          productInformation.map((item: Product, index: number) => {
+            return (
+              <Col key={index}>
+                <ProductList item={item} />
+              </Col>
+            );
+          })}
+      </Row>
     </div>
   );
 };

@@ -138,3 +138,21 @@ body {
   width: 100%;
   height: 100%;
 }
+
+/* 상품 컨테이너 */
+.product_container {
+  height: 500px;
+  width: 400px;
+}
+
+.product_container img {
+  width: 100%;
+  height: 400px;
+}
+
+.product_container img:hover {
+  width: 120%;
+  height: 500px;
+  cursor: pointer;
+  transition: 50ms ease-in;
+}
