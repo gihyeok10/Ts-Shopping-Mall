@@ -1,7 +1,10 @@
 import React from "react";
-
 const BannerComponent = () => {
-  return <div>BannerComponent</div>;
+  return (
+    <div id="banner">
+      <img src="" alt="" />
+    </div>
+  );
 };
 
 export default BannerComponent;
