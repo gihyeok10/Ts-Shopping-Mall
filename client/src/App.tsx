@@ -17,17 +17,12 @@ import SearchPage from "./Pages/SearchPage";
 import MainPage from "./Pages/MainPage";
 import { RootReducerType } from "./Redux";
 
-import { useEffect } from "react";
 function App() {
-  const navigate = useNavigate();
   const data2 = useSelector((state: RootReducerType) => state.allReducers);
   console.log("js의 데이타 입니다..!", data2);
 
   return (
     <div className="App">
-      <button onClick={() => navigate("/cart")}>장바구니</button>
-      <button onClick={() => navigate("/join")}>회원가입</button>
-      <button onClick={() => navigate("/login")}>로그인</button>
       <Routes>
         <Route path="/" element={<MainPage />} />
         <Route path="/detail/:id" element={<DetailPage />} />

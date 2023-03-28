@@ -3,7 +3,8 @@ import { useNavigate } from "react-router";
 import { useEffect, useState } from "react";
 import ProductList from "../Component/ProductList";
 import axios from "axios";
-
+import NavbarComponent from "../Component/NavbarComponent";
+import BannerComponent from "../Component/BannerComponent";
 export interface Product {
   product_id: number;
   price: string;
@@ -35,6 +36,8 @@ const MainPage = () => {
   };
   return (
     <div>
+      <NavbarComponent />
+      <BannerComponent />
       <button onClick={getProductInformation}>정보go</button>
       <button onClick={navigateMove}>Go Detail</button>
 
