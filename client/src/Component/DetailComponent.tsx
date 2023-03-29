@@ -47,7 +47,7 @@ export const DetailComponent = (props: PropsType) => {
   return (
     <Container style={{ border: "1px solid" }}>
       <Row>
-        <Col lg={5}>
+        <Col lg={4}>
           <div style={{ height: 650, width: 560 }}>
             {DetailProduct && (
               <img
@@ -60,7 +60,7 @@ export const DetailComponent = (props: PropsType) => {
         </Col>
 
         <Col
-          lg={5}
+          lg={6}
           style={{ border: "1px solid", marginLeft: 200, marginTop: 20 }}
         >
           {DetailProduct && (
@@ -73,7 +73,7 @@ export const DetailComponent = (props: PropsType) => {
 
               <div className="detail_product">
                 <div>
-                  <p> 브랜드</p>
+                  <p>제품 브랜드</p>
                 </div>
                 <div>
                   <p>{DetailProduct.brand}</p>
@@ -85,25 +85,29 @@ export const DetailComponent = (props: PropsType) => {
                   <p>성별</p>
                 </div>
                 <div>
-                  <p>{DetailProduct.gneder}</p>
+                  <p>{DetailProduct.gneder}용</p>
                 </div>
               </div>
 
               <div className="detail_product">
                 <div>
-                  <p> 소비자가</p>
+                  <p style={{ color: "gray" }}> 소비자가</p>
                 </div>
                 <div>
-                  <p>{DetailProduct.price}</p>
+                  <p style={{ color: "gray", textDecoration: "line-through" }}>
+                    {DetailProduct.price}원
+                  </p>
                 </div>
               </div>
 
               <div className="detail_product">
                 <div>
-                  <p> 할인가</p>
+                  <p style={{ fontSize: 20, fontWeight: "bold" }}> 할인가</p>
                 </div>
                 <div>
-                  <p>{DetailProduct.price}</p>
+                  <p style={{ fontSize: 20, fontWeight: "bold" }}>
+                    {DetailProduct.price}원
+                  </p>
                 </div>
               </div>
 
@@ -121,7 +125,7 @@ export const DetailComponent = (props: PropsType) => {
                   <p>배송비</p>
                 </div>
                 <div>
-                  <p>7000원</p>
+                  <p>7000원 (130,000원 이상 구매 시 무료)</p>
                 </div>
               </div>
 
@@ -133,16 +137,44 @@ export const DetailComponent = (props: PropsType) => {
                   <p>800원</p>
                 </div>
               </div>
+              <hr></hr>
+              <div className="newb">
+                <p>
+                  신규회원을위한 5000원 쿠폰지급 (~12.31까지 / 5만원 이상
+                  구매시)
+                </p>
+              </div>
+              <div className="gun">
+                <p style={{ color: "red", fontSize: 13 }}>
+                  [관부가세 미포함] 관부가세 면제기준 : 미화 150달러 이하,
+                  향수의 경우 60ml 이하
+                </p>
+              </div>
 
-              <div>
-                <p>현재 수량</p>
-                <button onClick={() => setProduct_number(product_number + 1)}>
-                  +
-                </button>
-                <p>{product_number}</p>
-                <button onClick={() => setProduct_number(product_number - 1)}>
-                  -
-                </button>
+              <div className="counter_box">
+                <div>{DetailProduct.name}</div>
+                <div>
+                  <div>
+                    <button
+                      onClick={() => setProduct_number(product_number + 1)}
+                    >
+                      +
+                    </button>
+                  </div>
+                  <div>
+                    <p>{product_number}</p>
+                  </div>
+                  <div>
+                    <button
+                      onClick={() => setProduct_number(product_number - 1)}
+                    >
+                      -
+                    </button>
+                  </div>
+                </div>
+                <div>
+                  <p>80000만원</p>
+                </div>
               </div>
               <div>
                 <button

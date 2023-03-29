@@ -162,11 +162,81 @@ body {
 }
 
 .detail_product div:first-child {
-  width: 50%;
-  background-color: antiquewhite;
+  display: flex;
+  justify-content: flex-start;
+  width: 30%;
 }
 
 .detail_product div:nth-child(2) {
-  width: 50%;
-  background-color: blue;
+  width: 70%;
+  display: flex;
+
+  justify-content: flex-start;
+}
+
+.newb {
+  margin: 0;
+  background-color: #f0f0f0;
+  border: 1px solid #cccccc;
+  display: flex;
+  height: 50px;
+}
+
+.newb p {
+  margin-left: 20px;
+  margin-top: 14px;
+  align-self: center;
+}
+
+.gun {
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 2em;
+}
+
+.gun p {
+  margin-left: 10px;
+}
+
+.counter_box {
+  margin: 0;
+  background-color: #f0f0f0;
+  border: 1px solid #cccccc;
+  display: flex;
+  height: 80px;
+}
+
+.counter_box div:nth-child(2) {
+  background-color: white;
+  display: flex;
+  background-color: white;
+  height: 50px;
+  width: 150px;
+}
+
+.counter_box div:nth-child(2) div {
+  border: 1px solid #cccccc;
+
+  width: 50px;
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.counter_box div:nth-child(2) div:nth-child(2) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.counter_box div:nth-child(2) div:nth-child(2) p {
+  margin-top: 13px;
+}
+
+.counter_box div:nth-child(2) button {
+  height: 100%;
+  width: 100%;
+  font-size: 25px;
+  font-weight: bold;
+  border: none;
+  background-color: white;
 }
