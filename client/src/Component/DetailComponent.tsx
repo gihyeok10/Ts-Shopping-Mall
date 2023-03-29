@@ -152,7 +152,9 @@ export const DetailComponent = (props: PropsType) => {
               </div>
 
               <div className="counter_box">
-                <div>{DetailProduct.name}</div>
+                <div>
+                  <p>{DetailProduct.name}</p>
+                </div>
                 <div>
                   <div>
                     <button
@@ -172,11 +174,17 @@ export const DetailComponent = (props: PropsType) => {
                     </button>
                   </div>
                 </div>
-                <div>
-                  <p>80000만원</p>
-                </div>
               </div>
               <div>
+                <div className="check">
+                  <h2>{DetailProduct.price}</h2>
+                  <p>({product_number})개</p>
+                </div>
+
+                <div className="paygo">
+                  <div>구매하기</div>
+                  <div>장바구니</div>
+                </div>
                 <button
                   onClick={() => {
                     if (DetailProduct) {
