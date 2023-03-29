@@ -5,6 +5,7 @@ import { Dispatch } from "redux";
 import { useState, useEffect } from "react";
 import { ProductType } from "../Redux/action-types";
 import { Col, Container, Row } from "react-bootstrap";
+import DetailProductInfo from "./DetailProductInfo";
 type PropsType = {
   id: string | undefined;
 };
@@ -58,15 +59,81 @@ export const DetailComponent = (props: PropsType) => {
           </div>
         </Col>
 
-        <Col lg={5} style={{ border: "1px solid", marginLeft: 210 }}>
+        <Col
+          lg={5}
+          style={{ border: "1px solid", marginLeft: 200, marginTop: 20 }}
+        >
           {DetailProduct && (
             <div>
-              <h1>{DetailProduct.name}</h1>
-              <p>{DetailProduct.brand}</p>
-              <p>{DetailProduct.gneder}</p>
-              <p>{DetailProduct.price}</p>
-              <p>{DetailProduct.country}</p>
-              <p>{DetailProduct.brand}</p>
+              <hr></hr>
+              <div>
+                <h2>{DetailProduct.name}</h2>
+              </div>
+              <hr></hr>
+
+              <div className="detail_product">
+                <div>
+                  <p> 브랜드</p>
+                </div>
+                <div>
+                  <p>{DetailProduct.brand}</p>
+                </div>
+              </div>
+
+              <div className="detail_product">
+                <div>
+                  <p>성별</p>
+                </div>
+                <div>
+                  <p>{DetailProduct.gneder}</p>
+                </div>
+              </div>
+
+              <div className="detail_product">
+                <div>
+                  <p> 소비자가</p>
+                </div>
+                <div>
+                  <p>{DetailProduct.price}</p>
+                </div>
+              </div>
+
+              <div className="detail_product">
+                <div>
+                  <p> 할인가</p>
+                </div>
+                <div>
+                  <p>{DetailProduct.price}</p>
+                </div>
+              </div>
+
+              <div className="detail_product">
+                <div>
+                  <p>배송방법</p>
+                </div>
+                <div>
+                  <p>택배</p>
+                </div>
+              </div>
+
+              <div className="detail_product">
+                <div>
+                  <p>배송비</p>
+                </div>
+                <div>
+                  <p>7000원</p>
+                </div>
+              </div>
+
+              <div className="detail_product">
+                <div>
+                  <p>적립금</p>
+                </div>
+                <div>
+                  <p>800원</p>
+                </div>
+              </div>
+
               <div>
                 <p>현재 수량</p>
                 <button onClick={() => setProduct_number(product_number + 1)}>
@@ -92,6 +159,8 @@ export const DetailComponent = (props: PropsType) => {
           )}
         </Col>
       </Row>
+
+      <DetailProductInfo />
     </Container>
   );
 };

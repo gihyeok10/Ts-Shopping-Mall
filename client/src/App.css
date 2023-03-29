@@ -156,3 +156,17 @@ body {
   cursor: pointer;
   transition: 50ms ease-in;
 }
+
+.detail_product {
+  display: flex;
+}
+
+.detail_product div:first-child {
+  width: 50%;
+  background-color: antiquewhite;
+}
+
+.detail_product div:nth-child(2) {
+  width: 50%;
+  background-color: blue;
+}
