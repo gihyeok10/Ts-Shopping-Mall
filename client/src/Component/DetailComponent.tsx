@@ -6,6 +6,8 @@ import { useState, useEffect } from "react";
 import { ProductType } from "../Redux/action-types";
 import { Col, Container, Row } from "react-bootstrap";
 import DetailProductInfo from "./DetailProductInfo";
+import Button from "react-bootstrap/Button";
+
 type PropsType = {
   id: string | undefined;
 };
@@ -23,9 +25,6 @@ export const DetailComponent = (props: PropsType) => {
   let Product_Id: number | undefined;
 
   const [DetailProduct, setDetailProduct] = useState<ProductType>();
-  let price = Number(DetailProduct?.price.replace(/,/g, "")) * 0.9;
-  let string_price = price.toString();
-  let result_price = string_price.slice(0, 2) + "," + string_price.slice(2);
 
   const puls_minus_Btn = (w: string) => {
     if (w === "plus") {
@@ -34,7 +33,6 @@ export const DetailComponent = (props: PropsType) => {
       setProduct_number(product_number - 1);
     }
   };
-  console.log("가격숫자로바꿈:", result_price);
 
   useEffect(() => {
     getDetailProduct();
@@ -58,7 +56,7 @@ export const DetailComponent = (props: PropsType) => {
   };
 
   return (
-    <Container style={{ border: "1px solid" }}>
+    <Container>
       <Row>
         <Col lg={4}>
           <div style={{ height: 650, width: 560 }}>
@@ -119,7 +117,7 @@ export const DetailComponent = (props: PropsType) => {
                 </div>
                 <div>
                   <p style={{ fontSize: 20, fontWeight: "bold" }}>
-                    {result_price}원
+                    {DetailProduct.price}원
                   </p>
                 </div>
               </div>
@@ -150,6 +148,17 @@ export const DetailComponent = (props: PropsType) => {
                   <p>800원</p>
                 </div>
               </div>
+
+              <div className="detail_product">
+                <div>
+                  <p>수량</p>
+                </div>
+                <div className="counterBox">
+                  <Button onClick={() => puls_minus_Btn("plus")}>+</Button>
+                  <input type="text" value={product_number} />
+                  <Button onClick={() => puls_minus_Btn("minus")}>-</Button>
+                </div>
+              </div>
               <hr></hr>
               <div className="newb">
                 <p>
@@ -164,47 +173,29 @@ export const DetailComponent = (props: PropsType) => {
                 </p>
               </div>
 
-              <div className="counter_box">
-                <div>
-                  <p>{DetailProduct.name}</p>
-                </div>
-                <div>
-                  <div>
-                    <button onClick={() => puls_minus_Btn("plus")}>+</button>
-                  </div>
-                  <div>
-                    <p>{product_number}</p>
-                  </div>
-                  <div>
-                    <button onClick={() => puls_minus_Btn("minus")}>-</button>
-                  </div>
-                </div>
-              </div>
               <div>
                 <div className="check">
-                  <h2>{result_price}</h2>
+                  <h2> {DetailProduct.price}</h2>
                   <p>({product_number})개</p>
                 </div>
 
                 <div className="paygo">
+                  <div
+                    onClick={() => {
+                      if (DetailProduct) {
+                        dispatch(ProductInfo.product(DetailProduct, "add"));
+                      }
+                    }}
+                  >
+                    장바구니
+                  </div>
                   <div>구매하기</div>
-                  <div>장바구니</div>
                 </div>
-                <button
-                  onClick={() => {
-                    if (DetailProduct) {
-                      dispatch(ProductInfo.product(DetailProduct, "add"));
-                    }
-                  }}
-                >
-                  장바구니 담기
-                </button>
               </div>
             </div>
           )}
         </Col>
       </Row>
-
       <DetailProductInfo />
     </Container>
   );
