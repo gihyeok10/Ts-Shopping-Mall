@@ -200,7 +200,7 @@ export const DetailComponent = (props: PropsType) => {
           )}
         </Col>
       </Row>
-      <DetailProductInfo />
+      <DetailProductInfo item={DetailProduct} />
     </Container>
   );
 };

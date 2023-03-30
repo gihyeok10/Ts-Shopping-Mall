@@ -1,6 +1,12 @@
 import React from "react";
 import { Container } from "react-bootstrap";
-const DetailProductInfo = () => {
+import { Product } from "../Pages/MainPage";
+
+type Props = {
+  item: Product | undefined;
+};
+
+const DetailProductInfo = (props: Props) => {
   return (
     <Container className="detailInfoBox">
       <div>
@@ -9,9 +15,9 @@ const DetailProductInfo = () => {
         <h5 className="h5margin">상품정보 고시</h5>
         <br />
         <hr />
-        품명 : 조말론_잉글리쉬 오크 앤 레드커런트 코롱
+        품명 : {props.item?.name}
         <br></br>
-        전성분 : 변성알코올, 향료, 정제수, 토코페롤, 리날룰,
+        전성분 : {props.item?.ingredient}
         하이드록시시트로넬알, 리모넨, 시트로넬올, 제라니올, 시트랄
         <br></br>
         유제놀, 벤질알코올, 파네솔, 아이소유제놀, 시트릭애씨드,
@@ -31,9 +37,9 @@ const DetailProductInfo = () => {
         <br />
         사용기한 : 개봉 후 3년
         <br />
-        제조자 : 조말론 런던
+        제조자 : {props.item?.brand}
         <br />
-        제조국 : 영국
+        제조국 : {props.item?.country}
         <br />
         주의사항 : 1. 화장품사용 시 또는 사용 후 직사광선에 의하여 사용부위가
         붉은 반점, 부어오름 또는 가려움증 등의 이상 증상이나 부작용이 있는 경우
@@ -49,10 +55,10 @@ const DetailProductInfo = () => {
         품질보증기준 : 본 제품에 이상이 있을 경우, 공정거래위원회 고시
         소비자분쟁해결기준에 의해 보상해 드립니다.
         <br />
-        화장품책임판매업자 : 주식회사 퍼퓸그라피 / 서울시 종로구 대학로10길
+        화장품책임판매업자 : 주식회사 퍼퓸월드요 / 서울시 종로구 한남로10길
         15-15 2층 퍼퓸그라피
         <br />
-        고객센터 : 070-7424-1253
+        고객센터 : 070-4846-8716
         <br />
         <br />
         <br />
