@@ -70,14 +70,12 @@ export const DetailComponent = (props: PropsType) => {
           </div>
         </Col>
 
-        <Col
-          lg={6}
-          style={{ border: "1px solid", marginLeft: 200, marginTop: 20 }}
-        >
+        <Col lg={6} style={{ marginLeft: 200, marginTop: 20 }}>
           {DetailProduct && (
             <div>
-              <hr></hr>
               <div>
+                <br />
+                <br />
                 <h2>{DetailProduct.name}</h2>
               </div>
               <hr></hr>
@@ -155,7 +153,13 @@ export const DetailComponent = (props: PropsType) => {
                 </div>
                 <div className="counterBox">
                   <Button onClick={() => puls_minus_Btn("plus")}>+</Button>
-                  <input type="text" value={product_number} />
+                  <input
+                    type="text"
+                    value={product_number}
+                    onChange={(e) => {
+                      setProduct_number(parseInt(e.target.value));
+                    }}
+                  />
                   <Button onClick={() => puls_minus_Btn("minus")}>-</Button>
                 </div>
               </div>

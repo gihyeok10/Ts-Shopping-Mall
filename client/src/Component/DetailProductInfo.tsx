@@ -60,6 +60,7 @@ const DetailProductInfo = () => {
         <br />
         <br />
         <h5>상품결제정보</h5>
+        <br />
         <hr />
         - 고액결제의 경우 안전을 위해 카드사에서 확인전화를 드릴 수도 있습니다.
         <br />- 확인과정에서 도난 카드의 사용이나 타인 명의의 주문 등 정상적인
@@ -75,6 +76,7 @@ const DetailProductInfo = () => {
         <br />
         <br />
         <h5>배송정보</h5>
+        <br />
         <hr />
         <br />
         배송 방법 : CJ대한통운
@@ -105,6 +107,7 @@ const DetailProductInfo = () => {
         <br />
         <br />
         <h5>교환 및 반품정보</h5>
+        <br />
         <hr />
         <br />
         ※교환 및 반품 전 필수 참고사항※
