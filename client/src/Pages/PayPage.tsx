@@ -1,13 +1,20 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { RootReducerType } from "../Redux";
+import { Container } from "react-bootstrap";
+import PayComponent from "../Component/PayComponent";
 const PayPage = () => {
   const productInfo = useSelector(
     (state: RootReducerType) => state.allProductReducer
   );
 
-  console.log(productInfo);
-  return <div>PayPage</div>;
+  console.log("넘어온데이터:", productInfo);
+  return (
+    <Container>
+      <h1>주문내역확인</h1>
+      <PayComponent item={productInfo} />
+    </Container>
+  );
 };
 
 export default PayPage;
