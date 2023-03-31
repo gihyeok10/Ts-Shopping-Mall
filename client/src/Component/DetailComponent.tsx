@@ -7,12 +7,15 @@ import { ProductType } from "../Redux/action-types";
 import { Col, Container, Row } from "react-bootstrap";
 import DetailProductInfo from "./DetailProductInfo";
 import Button from "react-bootstrap/Button";
+import { Product_pay } from "../Redux/action-creators/payActionCreators";
+import { useNavigate } from "react-router";
 
 type PropsType = {
   id: string | undefined;
 };
 
 export const DetailComponent = (props: PropsType) => {
+  const navigate = useNavigate();
   const dispatch: Dispatch = useDispatch();
   const [product_number, setProduct_number] = useState(1);
 
@@ -193,7 +196,16 @@ export const DetailComponent = (props: PropsType) => {
                   >
                     장바구니
                   </div>
-                  <div>구매하기</div>
+                  <div
+                    onClick={() => {
+                      if (DetailProduct) {
+                        dispatch(Product_pay.productPay(DetailProduct));
+                        navigate("/pay");
+                      }
+                    }}
+                  >
+                    구매하기
+                  </div>
                 </div>
               </div>
             </div>

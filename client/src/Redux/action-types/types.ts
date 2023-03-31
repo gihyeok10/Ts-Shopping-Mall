@@ -6,6 +6,9 @@ export enum ActionTypes {
   PRODUCT_NUM_MINUS = "product_num_minus",
 }
 
+export enum PayProductTypes {
+  PRODUCT_INSERT = "product_insert",
+}
 export enum UserActionTypes {
   GETUserInformation = "userInformation",
 }
