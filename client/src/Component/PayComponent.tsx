@@ -1,12 +1,15 @@
 import React from "react";
 import { ProductType } from "../Redux/action-types";
-import { Product } from "../Pages/MainPage";
 type PropsTypes = {
-  item: { item: ProductType | undefined };
+  item: { pay: ProductType | undefined };
 };
 const PayComponent = (props: PropsTypes) => {
-  console.log("props는?", props.item.item?.price);
-  return <div>PayComponent</div>;
+  return (
+    <div>
+      {props.item.pay?.name}
+      {props.item.pay?.price}
+    </div>
+  );
 };
 
 export default PayComponent;
