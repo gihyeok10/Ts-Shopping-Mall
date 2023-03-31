@@ -339,3 +339,15 @@ body {
 .h5margin {
   margin-top: 50px;
 }
+
+.pay_box {
+  width: 100%;
+  height: 80px;
+  border: 1px solid #cccccc;
+  display: flex;
+  align-items: center;
+}
+.pay_box img {
+  height: 100%;
+  width: 70px;
+}

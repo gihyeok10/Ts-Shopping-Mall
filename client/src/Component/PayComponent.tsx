@@ -5,9 +5,10 @@ type PropsTypes = {
 };
 const PayComponent = (props: PropsTypes) => {
   return (
-    <div>
-      {props.item.pay?.name}
-      {props.item.pay?.price}
+    <div className="pay_box">
+      <img src={props.item.pay?.image_url} alt="" />
+      <h6>{props.item.pay?.name}</h6>
+      <h6>{props.item.pay?.price}</h6>
     </div>
   );
 };
