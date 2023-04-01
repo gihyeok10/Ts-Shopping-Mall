@@ -199,9 +199,7 @@ export const DetailComponent = (props: PropsType) => {
                   <div
                     onClick={() => {
                       if (DetailProduct) {
-                        dispatch(
-                          Product_pay.productPay(DetailProduct, "detail")
-                        );
+                        dispatch(Product_pay.productPay(DetailProduct, "cart"));
                         navigate("/pay");
                       }
                     }}

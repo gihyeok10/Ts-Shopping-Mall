@@ -21,7 +21,7 @@ const PayPage = () => {
       {productInfo.pay.map((v, index) => {
         return (
           <div key={index}>
-            <PayComponent item={v} />;
+            <PayComponent item={v} />
           </div>
         );
       })}
@@ -34,3 +34,6 @@ export default PayPage;
 
 // 디테일 페이지나 장바구니에서 결제하기를 누르면?
 // 해당 데이터를 reducer에 담아서 여기서 useselector를 하면 될거같다.
+// 장바구니는 그거 다 들고가고
+
+// 결제하기 누르면 새로운 배열에 페이로드값 넣고 나머지 다 삭제 ㅇㅋ?

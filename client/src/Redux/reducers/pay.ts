@@ -21,9 +21,17 @@ const payReducer = (
       };
 
     case PayProductTypes.PRODUCT_CART_INSERT:
+      // if (state.pay.length >= 0) {
+      //   for (let i = 0; i < state.pay.length; i++) {
+      //     console.log("없어지는아이템:", state.pay[i]);
+      //     state.pay.pop();
+      //   }
+      // }
+      const newpay = [];
+      newpay.push(action.payload);
       return {
         ...state,
-        pay: action.payload,
+        pay: newpay,
       };
     default:
       return state;

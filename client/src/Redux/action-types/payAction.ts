@@ -11,4 +11,12 @@ export interface PayProductCartAction {
   payload: ProductType;
 }
 
-export type PayAction = PayProductAction | PayProductCartAction;
+interface PayProductZero {
+  type: PayProductTypes.PRODUCT_PAY;
+  payload: ProductType;
+}
+
+export type PayAction =
+  | PayProductAction
+  | PayProductCartAction
+  | PayProductZero;

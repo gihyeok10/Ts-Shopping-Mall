@@ -7,8 +7,9 @@ export enum ActionTypes {
 }
 
 export enum PayProductTypes {
-  PRODUCT_INSERT = "product_insert",
-  PRODUCT_CART_INSERT = "product_cart_insert",
+  PRODUCT_INSERT = "PRODUCT_INSERT",
+  PRODUCT_CART_INSERT = "PRODUCT_CART",
+  PRODUCT_PAY = "PRODUCT_PAY",
 }
 export enum UserActionTypes {
   GETUserInformation = "userInformation",
