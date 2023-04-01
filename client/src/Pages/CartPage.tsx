@@ -6,10 +6,10 @@ import { Dispatch } from "redux";
 import { ProductInfo } from "../Redux/action-creators";
 import { RootReducerType } from "../Redux/store";
 import CartComponent from "../Component/CartComponent";
+import CartGoPayComponent from "../Component/CartGoPayComponent";
 const CartPage = () => {
   const dispatch: Dispatch = useDispatch();
   const cartInfo = useSelector((state: RootReducerType) => state.allReducers);
-  console.log("카드정보:", cartInfo);
   const cartList = cartInfo ? cartInfo.cart : null;
   const cartNull = () => {
     dispatch(ProductInfo.product(ProductNull, "all_delete"));
@@ -25,6 +25,7 @@ const CartPage = () => {
             </div>
           );
         })}
+      <CartGoPayComponent item={cartInfo.cart} />
     </div>
   );
 };
