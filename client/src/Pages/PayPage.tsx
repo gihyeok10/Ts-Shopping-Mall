@@ -3,16 +3,29 @@ import { useDispatch, useSelector } from "react-redux";
 import { RootReducerType } from "../Redux";
 import { Container } from "react-bootstrap";
 import PayComponent from "../Component/PayComponent";
+import { ProductType } from "../Redux/action-types";
+interface productInfo {
+  pay: ProductType[];
+}
+
 const PayPage = () => {
-  const productInfo = useSelector(
+  const productInfo: productInfo = useSelector(
     (state: RootReducerType) => state.allProductReducer
   );
 
-  console.log("넘어온데이터:", productInfo);
+  console.log("넘어온데이터:", productInfo.pay);
+
   return (
     <Container>
       <h1>주문내역확인</h1>
-      <PayComponent item={productInfo} />
+      {productInfo.pay.map((v, index) => {
+        return (
+          <div key={index}>
+            <PayComponent item={v} />;
+          </div>
+        );
+      })}
+      {/* <PayComponent item={productInfo} /> */}
     </Container>
   );
 };
