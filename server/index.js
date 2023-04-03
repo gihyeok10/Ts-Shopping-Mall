@@ -76,6 +76,7 @@ app.post("/userInfo", (req, res) => {
 app.post("/getProduct", (req, res) => {
   db.query("select * from product;", (err, result) => {
     res.send(result);
+    console.log("에러메시지:", err);
   });
 });
 
