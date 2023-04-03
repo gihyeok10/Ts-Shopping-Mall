@@ -6,7 +6,9 @@ import { Dispatch } from "redux";
 import { UserInfo } from "../Redux/action-creators/userActionCreators";
 import axios from "axios";
 const LoginForm = () => {
+  const navigate = useNavigate();
   // 아이디 /비번 확인할 변수
+
   const [userId, setUserId] = useState("");
   const [userPassword, setUserPassword] = useState("");
   const dispatch: Dispatch = useDispatch();
@@ -33,6 +35,7 @@ const LoginForm = () => {
           sessionStorage.setItem("user_id", id);
           // 세션 스토리지에 id값 넣기
           submitUserInfo(id, password);
+          document.location.href = "/";
         } else {
           alert("아이디 또는 비밀번호가 맞지않습니다.");
         }
