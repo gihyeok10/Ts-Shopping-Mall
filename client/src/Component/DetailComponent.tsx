@@ -58,6 +58,16 @@ export const DetailComponent = (props: PropsType) => {
     }
   };
 
+  const purchase = () => {
+    if (sessionStorage.getItem("user_id")) {
+      if (DetailProduct) {
+        dispatch(Product_pay.productPay(DetailProduct, "cart", product_number));
+        navigate("/pay");
+      }
+    } else {
+      alert("로그인이 필요합니다 ");
+    }
+  };
   return (
     <Container>
       <Row>
@@ -196,22 +206,7 @@ export const DetailComponent = (props: PropsType) => {
                   >
                     장바구니
                   </div>
-                  <div
-                    onClick={() => {
-                      if (DetailProduct) {
-                        dispatch(
-                          Product_pay.productPay(
-                            DetailProduct,
-                            "cart",
-                            product_number
-                          )
-                        );
-                        navigate("/pay");
-                      }
-                    }}
-                  >
-                    구매하기
-                  </div>
+                  <div onClick={purchase}>구매하기</div>
                 </div>
               </div>
             </div>

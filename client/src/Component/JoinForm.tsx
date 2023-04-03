@@ -129,7 +129,6 @@ const JoinForm = () => {
         birth: userBirthDay,
       })
       .then((res) => {
-        console.log("성공!");
         console.log(res.data);
       });
   };
@@ -139,7 +138,6 @@ const JoinForm = () => {
   // KaKao Api
 
   const complete = (data: { address: string }) => {
-    console.log(data.address);
     setUserRegion(data.address + ":");
     handleClose();
   };

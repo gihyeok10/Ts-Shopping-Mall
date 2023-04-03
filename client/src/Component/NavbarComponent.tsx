@@ -5,6 +5,10 @@ import { faCoffee } from "@fortawesome/free-solid-svg-icons";
 import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 const NavbarComponent = () => {
+  const logOut = () => {
+    sessionStorage.removeItem("user_id");
+    alert("로그아웃 되었습니다.");
+  };
   return (
     <nav id="navbar">
       <div className="navbar_site_name">여기 사이트 이름 쓸거</div>
@@ -34,6 +38,12 @@ const NavbarComponent = () => {
           </div>
 
           <ul>
+            <li>
+              <Link to="/login" onClick={logOut}>
+                로그아웃
+              </Link>
+            </li>
+            <li>|</li>
             <li>
               <Link to="/login">로그인</Link>
             </li>
