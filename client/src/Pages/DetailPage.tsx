@@ -11,8 +11,6 @@ const DetailPage = () => {
     });
   }, []);
   let { id } = useParams();
-  console.log("현재 파람은?:", id);
-  console.log("Scroll position", window.scrollY);
   return (
     <div>
       <DetailComponent id={id} />

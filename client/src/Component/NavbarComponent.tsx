@@ -4,7 +4,12 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCoffee } from "@fortawesome/free-solid-svg-icons";
 import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
+import { useSelector } from "react-redux";
+import { RootReducerType } from "../Redux";
+
 const NavbarComponent = () => {
+  const cartInfo = useSelector((state: RootReducerType) => state.allReducers);
+  console.log("navbar고요:", cartInfo.cartNum);
   const logOut = () => {
     sessionStorage.removeItem("user_id");
     alert("로그아웃 되었습니다.");
@@ -64,7 +69,7 @@ const NavbarComponent = () => {
           </ul>
           <div className="cart">
             <FontAwesomeIcon icon={faCartShopping} style={{ color: "white" }} />
-            <div className="cart_number">1</div>
+            <div className="cart_number">{cartInfo.cartNum}</div>
           </div>
         </div>
       </div>

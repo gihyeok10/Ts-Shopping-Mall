@@ -42,7 +42,6 @@ const cartReducer = (
       };
 
     case ActionTypes.PRODUCT_DELETE:
-      console.log("delete가 들어왔습니다.");
       const newCart2 = state.cart.filter(
         (item) => item.name !== action.payload.name
       );
@@ -53,7 +52,6 @@ const cartReducer = (
       };
 
     case ActionTypes.PRODUCT_ALL_DELETE:
-      console.log("all_delete가 들어왔습니다.");
       return { ...state, cart: [], cartNum: 0 };
 
     case ActionTypes.PRODUCT_NUM_PLUS:
