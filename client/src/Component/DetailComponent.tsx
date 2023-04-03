@@ -201,6 +201,7 @@ export const DetailComponent = (props: PropsType) => {
                     onClick={() => {
                       if (DetailProduct) {
                         dispatch(ProductInfo.product(DetailProduct, "add"));
+                        navigate("/cart");
                       }
                     }}
                   >

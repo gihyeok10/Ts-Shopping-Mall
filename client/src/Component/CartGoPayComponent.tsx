@@ -13,12 +13,15 @@ const CartGoPayComponent = (props: PropsTypes) => {
   const navigate = useNavigate();
 
   const PayGo = () => {
-    props.item.forEach((item) => {
-      dispatch(Product_pay.productPay(item, "detail", 1));
-    });
-    navigate("/pay");
+    if (sessionStorage.getItem("user_id")) {
+      props.item.forEach((item) => {
+        dispatch(Product_pay.productPay(item, "detail", 1));
+      });
+      navigate("/pay");
+    } else {
+      alert("로그인이 필요합니다.");
+    }
   };
-  console.log("전달된 프롭스:", props.item);
   return (
     <div>
       <button onClick={PayGo}>결제하기</button>
