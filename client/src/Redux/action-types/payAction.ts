@@ -16,7 +16,13 @@ interface PayProductZero {
   payload: ProductType;
 }
 
+interface PayProductDelete {
+  type: PayProductTypes.PRODUCT_PAY_DELETE;
+  payload: ProductType;
+}
+
 export type PayAction =
   | PayProductAction
   | PayProductCartAction
-  | PayProductZero;
+  | PayProductZero
+  | PayProductDelete;

@@ -33,6 +33,15 @@ const payReducer = (
         ...state,
         pay: newpay,
       };
+
+    case PayProductTypes.PRODUCT_PAY_DELETE:
+      const newList = state.pay.filter(
+        (item) => item.name !== action.payload.name
+      );
+      return {
+        ...state,
+        pay: newList,
+      };
     default:
       return state;
   }

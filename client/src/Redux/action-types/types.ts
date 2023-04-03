@@ -7,6 +7,7 @@ export enum ActionTypes {
 }
 
 export enum PayProductTypes {
+  PRODUCT_PAY_DELETE = "PRODUCT_PAY_DELETE",
   PRODUCT_INSERT = "PRODUCT_INSERT",
   PRODUCT_CART_INSERT = "PRODUCT_CART",
   PRODUCT_PAY = "PRODUCT_PAY",

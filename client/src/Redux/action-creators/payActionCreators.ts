@@ -21,6 +21,11 @@ const productPay = (
         type: PayProductTypes.PRODUCT_CART_INSERT,
         payload: productInfo,
       });
+    } else if (howProduct === "delete") {
+      dispatch({
+        type: PayProductTypes.PRODUCT_PAY_DELETE,
+        payload: productInfo,
+      });
     }
   };
 };
