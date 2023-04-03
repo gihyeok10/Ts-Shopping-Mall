@@ -14,7 +14,7 @@ const CartGoPayComponent = (props: PropsTypes) => {
 
   const PayGo = () => {
     props.item.forEach((item) => {
-      dispatch(Product_pay.productPay(item, "detail"));
+      dispatch(Product_pay.productPay(item, "detail", 1));
     });
     navigate("/pay");
   };

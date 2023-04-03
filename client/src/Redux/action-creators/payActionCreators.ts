@@ -3,7 +3,11 @@ import { ProductType } from "../action-types";
 import { PayAction } from "../action-types/payAction";
 import { PayProductTypes } from "../action-types/types";
 
-const productPay = (productInfo: ProductType, howProduct: string): any => {
+const productPay = (
+  productInfo: ProductType,
+  howProduct: string,
+  stateNum: number
+): any => {
   return async (dispatch: Dispatch<PayAction>) => {
     if (howProduct === "detail") {
       dispatch({
@@ -11,6 +15,8 @@ const productPay = (productInfo: ProductType, howProduct: string): any => {
         payload: productInfo,
       });
     } else if (howProduct === "cart") {
+      productInfo.stateNum = stateNum;
+
       dispatch({
         type: PayProductTypes.PRODUCT_CART_INSERT,
         payload: productInfo,
