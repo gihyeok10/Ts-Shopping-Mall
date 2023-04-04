@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { RootReducerType } from "../Redux";
 import { Dispatch } from "redux";
 import { UserInfo } from "../Redux/action-creators/userActionCreators";
+import { Container } from "react-bootstrap";
 import axios from "axios";
 const LoginForm = () => {
   const navigate = useNavigate();
@@ -57,32 +58,66 @@ const LoginForm = () => {
       });
   };
   return (
-    <div>
-      <h1>로그인창</h1>
+    <Container className="LoginContainer">
       <div>
-        <label>아이디</label>
+        <h4>회원 로그인</h4>
+        <p>
+          가입하신 아이디와 비밀번호를 입력해주세요.<br></br>비밀번호는
+          대소문자를 구분합니다.
+        </p>
+
         <input
+          style={{ marginTop: "1em" }}
           type="text"
+          placeholder="아이디"
           onChange={(e) => {
             setUserId(e.target.value);
           }}
         />
-        <label>비번</label>
         <input
+          style={{ marginTop: "0.3em" }}
+          className="input1"
           type="text"
+          placeholder="비밀번호"
           onChange={(e) => {
             setUserPassword(e.target.value);
           }}
         />
-        <button
+        <div
+          className="loginBtn"
           onClick={() => {
             checkLogin(userId, userPassword);
           }}
         >
           로그인
-        </button>
+        </div>
       </div>
-    </div>
+      <div>
+        <h4>회원가입</h4>
+        <p>
+          아직 회원이 아니신가요?<br></br>
+          회원가입을 하시면 다양한 혜택을 편리하게 이용하실 수 있습니다.
+        </p>
+        <div
+          className="joinBtn"
+          onClick={() => {
+            navigate("/join");
+          }}
+        >
+          회원가입
+        </div>
+        <p>
+          비회원 구매를 원하세요?<br></br>
+          아래버튼으로 연결 후 비회원 구매가 가능합니다.
+        </p>
+        <div
+          className="joinBtn"
+          onClick={() => alert("비회원구매는 아직 불가능합니다.")}
+        >
+          비회원구매
+        </div>
+      </div>
+    </Container>
   );
 };
 
