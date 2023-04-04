@@ -145,10 +145,13 @@ const JoinForm = () => {
 
   return (
     <Container>
-      <h4>회원가입 정보입력</h4>
+      <h4 style={{ marginTop: "2em" }}>회원가입 정보입력</h4>
       <Container className="joinBorder">
         <div className="join_Container">
-          <div className="join_detailBox">
+          <div
+            className="join_detailBox"
+            style={{ marginTop: "2em", borderTop: "1px solid #cccccc" }}
+          >
             <div className="join_detailBoxfirst">아이디</div>
 
             <div className="join_detailBoxsecond">
@@ -282,7 +285,13 @@ const JoinForm = () => {
             </div>
           </div>
 
-          <button onClick={joinSubmit}>회원가입하기</button>
+          <button
+            onClick={joinSubmit}
+            className="joinBtn"
+            style={{ width: "100%", marginTop: "1em" }}
+          >
+            회원가입하기
+          </button>
           <Modal show={show} onHide={handleClose}>
             <Modal.Header closeButton>
               <Modal.Title>Modal heading</Modal.Title>
