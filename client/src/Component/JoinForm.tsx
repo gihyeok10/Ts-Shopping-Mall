@@ -5,7 +5,9 @@ import DaumPostcode from "react-daum-postcode";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import { Container } from "react-bootstrap";
+import { useNavigate } from "react-router";
 const JoinForm = () => {
+  const navigate = useNavigate();
   // select 상태 변수
   const [index, setIndex] = useState("@naver.com");
   const [checkPassword, setCheckPassword] = useState(true);
@@ -117,21 +119,37 @@ const JoinForm = () => {
   };
 
   const joinSubmit = () => {
-    axios
-      .post("http://localhost:3002/joinSubmit", {
-        id: userId,
-        name: userName,
-        password: userPassword,
-        phoneNum: userPhoneNum,
-        homePhoneNum: userHomePhoneNum,
-        sex: userSex,
-        email: userEmail,
-        address: userRegion + userAddress,
-        birth: userBirthDay,
-      })
-      .then((res) => {
-        console.log(res.data);
-      });
+    if (
+      userId &&
+      userPassword &&
+      userAddress &&
+      userBirthDay &&
+      userHomePhoneNum &&
+      userEmail &&
+      userPhoneNum &&
+      userRegion &&
+      userSex
+    ) {
+      axios
+        .post("http://localhost:3002/joinSubmit", {
+          id: userId,
+          name: userName,
+          password: userPassword,
+          phoneNum: userPhoneNum,
+          homePhoneNum: userHomePhoneNum,
+          sex: userSex,
+          email: userEmail,
+          address: userRegion + userAddress,
+          birth: userBirthDay,
+        })
+        .then((res) => {
+          console.log(res.data);
+          alert("회원가입이 완료되었습니다!!");
+          navigate("/login");
+        });
+    } else {
+      alert("양식에 맞게 작성 부탁드립니다.");
+    }
   };
 
   // 서버에 회원가입 양식 전송하기.
@@ -294,7 +312,7 @@ const JoinForm = () => {
           </button>
           <Modal show={show} onHide={handleClose}>
             <Modal.Header closeButton>
-              <Modal.Title>Modal heading</Modal.Title>
+              <Modal.Title>우편주소 찾기</Modal.Title>
             </Modal.Header>
             <Modal.Body>
               <DaumPostcode
