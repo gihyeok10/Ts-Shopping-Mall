@@ -12,35 +12,44 @@ const CartComponent = (props: PropsTypes) => {
 
   return (
     <div className="cartList">
-      <img
-        src={props.item.image_url && props.item.image_url}
-        className="cart_Img"
-      />
-      <li>{props.item.name && props.item.name}</li>
-      <li>{props.item.price && props.item.price}</li>
-      <li>수량:{props.item.stateNum}개</li>
-      <button
-        onClick={() => {
-          dispatch(ProductInfo.product(props.item, "num_plus"));
-        }}
-      >
-        +
-      </button>
-      <button
-        onClick={() => {
-          dispatch(ProductInfo.product(props.item, "num_minus"));
-        }}
-      >
-        -
-      </button>
-      <button
-        onClick={() => {
-          dispatch(ProductInfo.product(props.item, "delete"));
-        }}
-      >
-        삭제
-      </button>
-      <button>결제하기</button>
+      <div>
+        <img
+          src={props.item.image_url && props.item.image_url}
+          className="cart_Img"
+        />
+      </div>
+      <div>
+        <button
+          onClick={() => {
+            dispatch(ProductInfo.product(props.item, "delete"));
+          }}
+          className="deleteBtn"
+        >
+          X
+        </button>
+        <h5>{props.item.name && props.item.name}</h5>
+        <p style={{ color: "#ccc" }}>배송 : [무료] / 기본배송</p>
+        <p style={{ fontWeight: "bold" }}>
+          {props.item.price && props.item.price}원
+        </p>
+        <div className="MathBtn">
+          <p style={{ fontWeight: "bold" }}>수량:{props.item.stateNum}개</p>
+          <button
+            onClick={() => {
+              dispatch(ProductInfo.product(props.item, "num_plus"));
+            }}
+          >
+            +
+          </button>
+          <button
+            onClick={() => {
+              dispatch(ProductInfo.product(props.item, "num_minus"));
+            }}
+          >
+            -
+          </button>
+        </div>
+      </div>
     </div>
   );
 };

@@ -67,17 +67,60 @@ body {
 }
 
 .cartList {
-  width: 500px;
-  height: 100px;
-  border: 1px solid black;
+  width: 100%;
+  height: 200px;
+  display: flex;
+  border-bottom: 1px solid #cccccc;
+}
+.cartList div:first-child {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* cartlist 두번째 div */
+.cartList div:nth-child(2) {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.cartList div:nth-child(2) h5 {
+  font-weight: bold;
+  margin-top: 1em;
+}
+.cart_Img {
+  width: 150px;
+  height: 150px;
+}
+
+.MathBtn {
   display: flex;
 }
-
-.cart_img {
-  width: 100px;
-  height: 80px;
+.MathBtn button {
+  border: none;
+  outline: none;
+  background-color: #fafafa;
+  border: 1px solid #cccccc;
+  margin-left: 5px;
+  width: 30px;
+  height: 30px;
+  border-radius: 5px;
 }
 
+.deleteBtn {
+  margin-top: 5px;
+  margin-right: 2em;
+  align-self: flex-end;
+  border: none;
+  outline: none;
+  background-color: #fafafa;
+  border: 1px solid #cccccc;
+  margin-left: 5px;
+  width: 30px;
+  height: 30px;
+  border-radius: 5px;
+}
 /* navbar */
 #navbar {
   background-color: bisque;
@@ -516,4 +559,8 @@ body {
   background-color: black;
   transition: 300ms ease-in;
   color: white;
+}
+
+.cartContainer {
+  border: 1px solid black;
 }

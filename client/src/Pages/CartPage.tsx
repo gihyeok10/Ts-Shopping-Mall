@@ -1,5 +1,6 @@
 import React from "react";
 import { ProductType } from "../Redux/action-types";
+import { Container } from "react-bootstrap";
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Dispatch } from "redux";
@@ -15,8 +16,7 @@ const CartPage = () => {
     dispatch(ProductInfo.product(ProductNull, "all_delete"));
   };
   return (
-    <div>
-      <button onClick={cartNull}>장바구니 비우기</button>
+    <Container className="cartContainer">
       {cartList &&
         cartList.map((item, index) => {
           return (
@@ -25,8 +25,9 @@ const CartPage = () => {
             </div>
           );
         })}
+      <button onClick={cartNull}>장바구니 비우기</button>
       <CartGoPayComponent item={cartInfo.cart} />
-    </div>
+    </Container>
   );
 };
 
