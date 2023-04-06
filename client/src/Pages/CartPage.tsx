@@ -17,6 +17,7 @@ const CartPage = () => {
   };
   return (
     <Container className="cartContainer">
+      <div className="basic">일반상품({cartInfo.cartNum})</div>
       {cartList &&
         cartList.map((item, index) => {
           return (
@@ -25,8 +26,11 @@ const CartPage = () => {
             </div>
           );
         })}
-      <button onClick={cartNull}>장바구니 비우기</button>
-      <CartGoPayComponent item={cartInfo.cart} />
+
+      <div className="cartFooter">
+        <div onClick={cartNull}>장바구니 비우기</div>
+        <CartGoPayComponent item={cartInfo.cart} />
+      </div>
     </Container>
   );
 };

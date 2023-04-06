@@ -22,11 +22,7 @@ const CartGoPayComponent = (props: PropsTypes) => {
       alert("로그인이 필요합니다.");
     }
   };
-  return (
-    <div>
-      <button onClick={PayGo}>결제하기</button>
-    </div>
-  );
+  return <div onClick={PayGo}>결제하기</div>;
 };
 
 export default CartGoPayComponent;
